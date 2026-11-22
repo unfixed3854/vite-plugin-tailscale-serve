@@ -1,0 +1,49 @@
+{
+	"name": "vite-plugin-tailscale-serve",
+	"version": "0.1.0",
+	"description": "Expose the Vite dev server to your tailnet over HTTPS with tailscale serve, on whatever port Vite picked",
+	"keywords": [
+		"vite",
+		"vite-plugin",
+		"tailscale",
+		"tailscale-serve",
+		"https",
+		"dev-server"
+	],
+	"license": "MIT",
+	"author": "Maciej Augustyniak",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/unfixed3854/vite-plugin-tailscale-serve.git"
+	},
+	"homepage": "https://github.com/unfixed3854/vite-plugin-tailscale-serve#readme",
+	"bugs": "https://github.com/unfixed3854/vite-plugin-tailscale-serve/issues",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"engines": {
+		"node": ">=18"
+	},
+	"scripts": {
+		"build": "rm -rf dist && tsc -p tsconfig.build.json",
+		"check": "biome check",
+		"typecheck": "tsc --noEmit",
+		"prepublishOnly": "pnpm run check && pnpm run typecheck && pnpm run build"
+	},
+	"peerDependencies": {
+		"vite": ">=5.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.5",
+		"@types/node": "^26.6.6",
+		"typescript": "^7.0.2",
+		"vite": "^8.3.8"
+	}
+}
